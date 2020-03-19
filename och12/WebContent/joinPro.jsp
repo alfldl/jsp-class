@@ -8,17 +8,17 @@
 <jsp:setProperty property="*" name="member"/>
 <%
 	MemberDao md = MemberDao.getInstance();
-	int result = md.insert(member);
+	int result  = md.insert(member); 
 	if (result > 0) { 
 %>
 	<script type="text/javascript">
-		alert("회원가입 축하 !! ");
+		alert("회원가입 축하 !! 이제 고생 좀 해");
 		location.href="loginForm.jsp";
 	</script>
 <%
 	} else { %>
 		<script type="text/javascript">
-			alert("실패");
+			alert("헐 실패야 똑바로 해 ~");
 			location.href="joinForm.jsp";
 		</script>
 <%	}  %>

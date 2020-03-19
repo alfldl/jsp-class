@@ -45,7 +45,7 @@ table {
 					pattern="\d{2,3}-\d{3,4}-\d{4}" value="<%=member.getTel()%>"></td>
 			</tr>
 			<tr>
-				<td>날짜</td>
+				<td>날자</td>
 				<td><%=member.getReg_date()%></td>
 			</tr>
 			<tr>
