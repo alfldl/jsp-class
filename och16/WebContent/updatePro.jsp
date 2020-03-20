@@ -12,7 +12,7 @@
 </c:if>	
 <c:if test="${result == 0 }">
 	<script type="text/javascript">
-		alert("오류입니다.");
+		alert("오류입니다 T.T");
 		location.href="updateForm.do?num=${num}&pageNum=${pageNum}";
 	</script>
 </c:if>

@@ -20,11 +20,13 @@ public class Controller extends HttpServlet {
 	   	//web.xml에서 propertyConfig에 해당하는 init-param 의 값을 읽어옴
 	   	String props = config.getInitParameter("config");
 	  //명령어와 처리클래스의 매핑정보를 저장할 Properties객체 생성
+	   	System.out.println("props->"+props);
 	    Properties pr = new Properties();
 	    FileInputStream f = null;
 	    try {
 	          String configFilePath = 
 	        		  config.getServletContext().getRealPath(props);
+	  	     System.out.println("configFilePath->"+configFilePath);
 	          f = new FileInputStream(configFilePath);
 	        //command.properties파일의 정보를  Properties객체에 저장
 	          pr.load(f);
@@ -36,7 +38,7 @@ public class Controller extends HttpServlet {
 	     Iterator keyIter = pr.keySet().iterator();
 	   //객체를 하나씩 꺼내서 그 객체명으로 Properties객체에 저장된 객체에 접근
 	     while( keyIter.hasNext() ) {
-	          String command = (String)keyIter.next();         // /list.do
+	          String command = (String)keyIter.next();    // /list.do
 	          String className = pr.getProperty(command); // service.ListAction
 	          try {
 	               Class commandClass = Class.forName(className);//해당 문자열을 클래스로 만든다.
@@ -61,7 +63,7 @@ public class Controller extends HttpServlet {
 		String view = null;
 	    CommandProcess com=null;
 	    try {	String command = request.getRequestURI();
-				System.out.println(command);  // /ch16/list.do
+				System.out.println(command);  // /och16/list.do
 			//	System.out.println(request.getContextPath()); // /ch16
 			//	System.out.println(command.indexOf(request.getContextPath()));  // 0
 	       //  if (command.indexOf(request.getContextPath()) == 0) {
